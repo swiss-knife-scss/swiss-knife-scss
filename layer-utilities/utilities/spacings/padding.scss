@@ -1,0 +1,16 @@
+// # СТИЛИ ОТСТУПОВ PADDING # //
+@include spacings(p, padding);
+@include spacings(py, padding-block);
+@include spacings(px, padding-inline);
+@include spacings(pt, padding-top);
+@include spacings(pr, padding-right);
+@include spacings(pb, padding-bottom);
+@include spacings(pl, padding-left);
+
+//@include responsiveSpacings(p, padding);
+//@include responsiveSpacings(py, padding-block);
+//@include responsiveSpacings(px, padding-inline);
+//@include responsiveSpacings(pt, padding-top);
+//@include responsiveSpacings(pr, padding-right);
+//@include responsiveSpacings(pb, padding-bottom);
+//@include responsiveSpacings(pl, padding-left);

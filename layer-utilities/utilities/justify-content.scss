@@ -1,0 +1,5 @@
+// # ПЕРЕМЕННЫЕ ДЛЯ УТИЛИТ JUSTIFY-CONTENT # //
+$property-values: (start, center, end, around, between);
+
+// # СТИЛИ JUSTIFY-CONTENT # //
+@include utilities(justify-content, justify-content);

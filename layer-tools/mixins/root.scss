@@ -1,0 +1,6 @@
+// # миксин для объявлений CSS переменных при @import "root.scss" # //
+@mixin variablesRoot($vars-root) {
+	@each $key, $value in $vars-root {
+		--#{$key}: #{$value};
+	}
+}

@@ -1,0 +1,166 @@
+// # ПОДКЛЮЧЕНИЕ УТИЛИТНЫХ КЛАССОВ SPACINGS # //
+@mixin spacings($class-name, $property-spacing, $auto: false) {
+	.#{$class-name} {
+		$breakpoints-name-list: map-keys($breakpoints);
+
+		@for $index from 1 through length($breakpoints) {
+			@if nth($breakpoints-name-list, -$index) == "xxl" {
+				@each $property in $property-values-spacings {
+					@if $property == "auto" and $auto {
+						&-#{$property} {
+							#{$property-spacing}: #{$property};
+						}
+					}
+
+					@else if $property != "auto" {
+						&-#{$property} {
+							@if $class-name == g or $class-name == cg {
+								--column-gap: #{$property}px;
+							}
+							#{$property-spacing}: #{$property}px;
+						}
+					}
+				}
+			}
+
+			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@each $property in $property-values-spacings {
+					@if $property == "auto" and $auto {
+						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@include media(nth($breakpoints-name-list, -$index)) {
+								#{$property-spacing}: #{$property};
+							}
+						}
+					}
+
+					@else if $property != "auto" {
+						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@include media(nth($breakpoints-name-list, -$index)) {
+								@if $class-name == g or $class-name == cg {
+									--column-gap: #{$property}px;
+								}
+								#{$property-spacing}: #{$property}px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// # ПОДКЛЮЧЕНИЕ УТИЛИТНЫХ КЛАССОВ SPACINGS ДЛЯ RESPONSIVE ВЕРСТКИ # //
+@mixin responsiveSpacings($class-name, $property-spacing, $auto: false) {
+	.#{$class-name} {
+		$breakpoints-name-list: map-keys($breakpoints);
+
+		@for $index from 1 through length($breakpoints) {
+			@if nth($breakpoints-name-list, -$index) == "xxl" {
+				@each $property in $property-values-spacings {
+					@if $property == "auto" and $auto {
+						&-#{$property} {
+							#{$property-spacing}: #{$property};
+						}
+					}
+
+					@else if $property != "auto" {
+						&-#{$property} {
+							@if $class-name == g or $class-name == cg {
+								--column-gap: #{spacing-size-responsive($property, var(#{"--"+$class-name}), #{"--"+$class-name+"-xs"})};
+							}
+
+							#{"--"+$class-name}: #{$property};
+							#{"--"+$class-name+"-xs"}: initial;
+							#{$property-spacing}: spacing-size-responsive($property, var(#{"--"+$class-name}), #{"--"+$class-name+"-xs"});
+						}
+					}
+				}
+			}
+
+			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@each $property in $property-values-spacings {
+					@if $property == "auto" and $auto {
+						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@include media(nth($breakpoints-name-list, -$index)) {
+								#{$property-spacing}: #{$property};
+							}
+						}
+					}
+
+					@else if $property != "auto" {
+						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							#{"--"+$class-name+"-xs"}: #{$property};
+
+							@include media(nth($breakpoints-name-list, -$index)) {
+								@if $class-name == g or $class-name == cg {
+									--column-gap: #{spacing-size-responsive($property, var(#{"--"+$class-name}, var(#{"--"+$class-name+"-xs"})), #{"--"+$class-name+"-xs"})};
+								}
+
+								#{$property-spacing}: spacing-size-responsive($property, var(#{"--"+$class-name}, var(#{"--"+$class-name+"-xs"})), #{"--"+$class-name+"-xs"});
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// # ПОДКЛЮЧЕНИЕ УТИЛИТНЫХ КЛАССОВ # //
+@mixin utilities($class-name, $property-utilities, $unit: "") {
+	.#{$class-name} {
+		$breakpoints-name-list: map-keys($breakpoints);
+
+		@for $index from 1 through length($breakpoints) {
+			@if nth($breakpoints-name-list, -$index) == "xxl" {
+				@each $property in $property-values {
+					@if $property == start or $property == end {
+						&-#{$property} {
+							#{$property-utilities}: flex-#{$property};
+						}
+					}
+
+					@else if $property == between or $property == around {
+						&-#{$property} {
+							#{$property-utilities}: space-#{$property};
+						}
+					}
+
+					@else {
+						&-#{$property} {
+							#{$property-utilities}: #{$property}#{$unit};
+						}
+					}
+				}
+			}
+
+			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@each $property in $property-values {
+					@if $property == start or $property == end {
+						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@include media(nth($breakpoints-name-list, -$index)) {
+								#{$property-utilities}: flex-#{$property};
+							}
+						}
+					}
+
+					@else if $property == between or $property == around {
+						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@include media(nth($breakpoints-name-list, -$index)) {
+								#{$property-utilities}: space-#{$property};
+							}
+						}
+					}
+
+					@else {
+						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@include media(nth($breakpoints-name-list, -$index)) {
+								#{$property-utilities}: #{$property}#{$unit};
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+// # СТИЛИ ОТСТУПОВ MARGIN # //
+@include spacings(m, margin, true);
+@include spacings(my, margin-block, true);
+@include spacings(mx, margin-inline, true);
+@include spacings(mt, margin-top, true);
+@include spacings(mr, margin-right, true);
+@include spacings(mb, margin-bottom, true);
+@include spacings(ml, margin-left, true);
+
+//@include responsiveSpacings(m, margin, true);
+//@include responsiveSpacings(my, margin-block, true);
+//@include responsiveSpacings(mx, margin-inline, true);
+//@include responsiveSpacings(mt, margin-top, true);
+//@include responsiveSpacings(mr, margin-right, true);
+//@include responsiveSpacings(mb, margin-bottom, true);
+//@include responsiveSpacings(ml, margin-left, true);

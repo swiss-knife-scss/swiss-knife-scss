@@ -1,0 +1,22 @@
+// # ПОДКЛЮЧЕНИЕ ШРИФТОВ # //
+// > Миксин includeFont принимает 3 аргумента:
+// >  - $file - название файла без его расширения
+// >  - $weight - жирность
+// >  - $style - начертание
+// > Внутри миксина includeFont также есть 3 обязательные переменные:
+// >  - $include-font-types - ассоциативный массив подключаемых форматов шрифта
+// >  - $include-font-path - строка пути до файлов шрифта
+// >  - $include-font-family - строка названия шрифта для вызова его в проекте
+@mixin includeFont($file, $weight: normal, $style: normal) {
+	@each $type, $format in $include-font-types {
+		@font-face {
+			src: local($file), local($file), url($include-font-path + $file + "." + $type) format($format);
+
+			font-family: $include-font-family;
+			font-weight: $weight;
+			font-style: $style;
+			font-stretch: normal;
+			font-display: block;
+		}
+	}
+}

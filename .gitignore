@@ -1,1 +1,14 @@
+# project
+node_modules
+build
+dist
+out
+
+# IDE and OS
 .idea
+.vscode
+Thumbs.db
+.DS_Store
+
+# dotenv environment variables file (build for Zeit Now)
+.env

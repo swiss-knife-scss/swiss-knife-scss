@@ -1,0 +1,79 @@
+@mixin col {
+	$breakpoints-name-list: map-keys($breakpoints);
+
+	.col {
+		@for $index from 1 through length($breakpoints) {
+			$cols-count: nth(map-get($col-media-params, nth($breakpoints-name-list, -$index)), 1);
+
+			@if nth($breakpoints-name-list, -$index) == "xxl" {
+				width: 100%;
+
+				@if length(map-get($col-media-params, nth($breakpoints-name-list, -$index))) == 2 {
+					$cols-padding: nth(map-get($col-media-params, nth($breakpoints-name-list, -$index)), 2);
+					padding-inline: #{$cols-padding}px;
+				}
+
+				@for $colNum from 1 through $cols-count {
+					&-#{$colNum} {
+						flex: 0 0 calc(100% / #{$cols-count} * #{$colNum});
+
+						max-width: calc(100% / #{$cols-count} * #{$colNum});
+					}
+				}
+			}
+
+			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@include media(nth($breakpoints-name-list, -$index)) {
+					@if length(map-get($col-media-params, nth($breakpoints-name-list, -$index))) == 2 {
+						$cols-padding: nth(map-get($col-media-params, nth($breakpoints-name-list, -$index)), 2);
+						padding-inline: #{$cols-padding}px;
+					}
+
+					@for $colNum from 1 through $cols-count {
+						&-#{$colNum}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							flex: 0 0 calc(100% / #{$cols-count} * #{$colNum});
+
+							max-width: calc(100% / #{$cols-count} * #{$colNum});
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.offset {
+		@for $index from 1 through length($breakpoints) {
+			$cols-count: nth(map-get($col-media-params, nth($breakpoints-name-list, -$index)), 1);
+
+			@if nth($breakpoints-name-list, -$index) == "xxl" {
+				@for $colNum from 0 through $cols-count - 1 {
+					&-#{$colNum} {
+						@if $colNum == 0 {
+							margin-left: 0;
+						}
+
+						@else {
+							margin-left: calc(100% / #{$cols-count} * #{$colNum});
+						}
+					}
+				}
+			}
+
+			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@include media(nth($breakpoints-name-list, -$index)) {
+					@for $colNum from 0 through $cols-count - 1 {
+						&-#{$colNum}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@if $colNum == 0 {
+								margin-left: 0;
+							}
+
+							@else {
+								margin-left: calc(100% / #{$cols-count} * #{$colNum});
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

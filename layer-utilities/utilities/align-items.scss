@@ -1,0 +1,5 @@
+// # ПЕРЕМЕННЫЕ ДЛЯ УТИЛИТ ALIGN-ITEMS # //
+$property-values: (start, center, end, stretch, baseline);
+
+// # СТИЛИ ALIGN-ITEMS # //
+@include utilities(align-items, align-items);

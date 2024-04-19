@@ -1,0 +1,51 @@
+@use "sass:math";
+
+// # ФУНКЦИЯ ДЛЯ МЕДИАЗАПРОСА - "within" # //
+@function getPreviousSize($currentSize) {
+	$keys: map-keys($breakpoints);
+	$index: index($keys, $currentSize) - 1;
+	$value: map-values($breakpoints);
+
+	@return nth($value, $index);
+}
+
+// # Функция для Container # //
+@function container-width($media) {
+	@each $breakpoint, $value in $breakpoints {
+		@if $media == $breakpoint {
+			@return $value + px;
+		}
+	}
+}
+
+// # Для utilities. Подставляет название медиазапроса # //
+@function classMedia($nameKey) {
+	$keys: map-keys($breakpoints);
+	$index: index($keys, $nameKey);
+
+	@if $index <= length($keys) {
+		@return "#{nth($keys, $index)}";
+	}
+}
+
+// # ФУНКЦИЯ ДЛЯ АДАПТИВНЫХ РАЗМЕРОВ # //
+@function responsive-size($min-size, $max-size: $min-size, $media: xs) {
+	@if($min-size == $max-size) {
+		$min-size: math.div($max-size, math.div(map-get($breakpoints, xxl), map-get($breakpoints, $media)));
+
+		@return calc(#{$min-size + px} + (#{$max-size} - #{$min-size}) * ((100vw - #{map-get($breakpoints, $media) + px}) / (#{map-get($breakpoints, xxl)} - #{map-get($breakpoints, $media)})));
+	}
+
+	@else {
+		@return calc(#{$min-size + px} + (#{$max-size} - #{$min-size}) * ((100vw - #{map-get($breakpoints, $media) + px}) / (#{map-get($breakpoints, xxl)} - #{map-get($breakpoints, $media)})));
+	}
+}
+
+// # ФУНКЦИЯ ДЛЯ SPACINGS РЕСПОНЗИВ РАЗМЕРОВ # //
+@function spacing-size-responsive($min-size, $max-size, $var-css-xs) {
+	@return calc(var(#{$var-css-xs}, #{$max-size}) * 1px + (#{$max-size} - var(#{$var-css-xs}, #{$min-size})) * ((100vw - #{map-get($breakpoints, xs) + px}) / (#{map-get($breakpoints, xxl)} - #{map-get($breakpoints, xs)})));
+}
+
+@function transition($property: all, $seconds: 0.4) {
+	@return $property $seconds+s;
+}

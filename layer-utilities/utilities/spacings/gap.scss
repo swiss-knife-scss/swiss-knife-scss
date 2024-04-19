@@ -1,0 +1,8 @@
+// # СТИЛИ ОТСТУПОВ GAP # //
+@include spacings(g, gap);
+@include spacings(rg, row-gap);
+@include spacings(cg, column-gap);
+
+//@include responsiveSpacings(g, gap);
+//@include responsiveSpacings(rg, row-gap);
+//@include responsiveSpacings(cg, column-gap);

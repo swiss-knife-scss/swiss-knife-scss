@@ -1,0 +1,68 @@
+// stylelint-disable media-query-no-invalid
+// # МЕДИАЗАПРОСЫ ЭКРАНОВ ОТОБРАЖЕНИЯ # //
+// > Миксин media принимает два параметра $media и $orientation.
+// > 	- $media - аргумент принимает ключи медиазапроса которые указны в $breakpoints.
+// > 	- $orientation - аргумент принимает три значения min, max и within.
+// > 	- Параметру $orientation изначально назначен min (по mobile first).
+@mixin media($media,  $orientation: $media-direction) {
+	$index: 1;
+
+	@each $name-breakpoint, $screen-value in $breakpoints {
+		@if $media == $name-breakpoint {
+			@if $orientation == "min" { // от большего разрешения к меньшему (включительно)
+				@media screen and (#{$orientation}-width: ($screen-value + 1) + "px") {
+					@content;
+				}
+			}
+
+			@else if $orientation == "max" { // от меньшего разрешения к большему (включительно)
+				@if length(map-values($breakpoints)) < $index + 1 {
+					@error "Данный медиазапрос #{$media} не существует, так как вы выбрали desktop first";
+				}
+
+				@else {
+					@media screen and (#{$orientation}-width: (nth(map-values($breakpoints), $index + 1) - 1) + "px") {
+						@content;
+					}
+				}
+			}
+
+			@else if $orientation == "within" { // для конкретного разрешения
+				@if (index(map-keys($breakpoints), $media) > 1) {
+					@media screen and (min-width: (getPreviousSize($media) + 1) + "px") and (max-width: $screen-value + "px") {
+						@content;
+					}
+				}
+
+				@else {
+					@media screen and (max-width: $screen-value + "px") {
+						@content;
+					}
+				}
+			}
+		}
+
+		$index: $index + 1; // stylelint-disable-line order/order
+	}
+}
+
+// # СКРЫТИЕ ПОЛОСЫ ПРОКРУТКИ SCROLLBAR # //
+@mixin no-scrollbar {
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+
+		width: 0;
+		height: 0;
+	}
+}
+
+// # МИКСИН ДЛЯ АДАПТИВНОГО FONT-SIZE ПРИНИМАЕТ В REM # //
+@mixin font-size-responsive($min-size, $max-size: $min-size) {
+	font-size: calc(#{$min-size + rem} + (#{$max-size * 10} - #{$min-size * 10}) * ((100vw - #{map-get($breakpoints, xs) + px}) / (#{map-get($breakpoints, xxl)} - #{map-get($breakpoints, xs)})));
+
+	@include media(xxl, min) {
+		font-size: calc(#{$max - size * 10} * (100vw / #{map-get($breakpoints, xxl)}));
+	}
+}

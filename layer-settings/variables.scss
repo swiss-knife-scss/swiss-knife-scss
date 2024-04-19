@@ -1,0 +1,113 @@
+// # SCSS-ПЕРЕМЕННЫЕ ДЛЯ ПОДКЛЮЧЕНИЯ ШРИФТОВ # //
+// > Данные переменные вызываются в миксине - "includeFont"
+$include-font-path: "./fonts" !default;
+$include-font-types: ("eot": "embedded-opentype", "otf": "opentype", "woff": "woff", "woff2": "woff2", "ttf": "truetype") !default;
+$include-font-family: "Arial" !default;
+
+// # АССОЦИАТИВНЫЙ МАССИВ ПЕРЕМЕННЫХ ROOT В CSS # //
+$variables-root: (
+	// ## Общие переменные ## //
+	"box-sizing": border-box,
+	"selection-color": hsl(212.65deg 100% 60%),
+	// ## Переменные для scrollbar ## //
+	"scrollbar-width": 7px,
+	"scrollbar-thumb-color": hsl(0deg 0% 75.69%),
+	"scrollbar-track-color": hsl(0deg 0% 94.51%),
+	// ## Переменные для тега html ## //
+	"html-font-size": 10px,
+	// ## Переменные для тега body ## //
+	"body-font-family": initial,
+	"body-font-size": initial,
+	"body-font-color": initial,
+	"body-font-weight": initial,
+	"body-font-style": initial,
+	"body-font-line-height": initial,
+	"body-font-letter-spacing": initial,
+	"body-background-color": initial,
+	// ## Переменные для тега a ## //
+	"link-color": initial,
+	"link-hover-color": initial,
+	"link-transition-color": initial,
+	// ## Переменные для тега hr ## //
+	"hr-color": hsl(0deg 0% 0%),
+) !default;
+
+// # SCSS-ПЕРЕМЕННЫЕ ДЛЯ DEFAULT # //
+// > Данные переменные используются в файле default.sFcss
+// *** //
+// ## SCSS переменная изменения свойства с параметром box-sizing: border-box для всего сайта ## //
+$box-sizing: var(--box-sizing, border-box) !default;
+// ## SCSS переменная для изменения цвета выделения текста на сайте ## //
+$selection-color: var(--selection-color, hsl(212.65deg 100% 60%)) !default;
+// ## SCSS переменная для ширины полосы прокрутки на сайте ## //
+$scrollbar-width: var(--scrollbar-width, 15px) !default;
+// ## SCSS переменная для цвета ползунка на сайте ## //
+$scrollbar-thumb-color: var(--scrollbar-thumb-color, hsl(0deg 0% 75.69%)) !default;
+// ## SCSS переменная для цвета трека на сайте ## //
+$scrollbar-track-color: var(--scrollbar-track-color, hsl(0deg 0% 94.51%)) !default;
+// ## SCSS переменная для определения размера текста тега html при использование единицы измерения rem в font-size ## //
+$html-font-size: var(--html-font-size, 10px) !default;
+// ## SCSS переменная для определения в теге <body> основного шрифта на сайте ## //
+$body-font-family: var(--body-font-family, initial) !default;
+// ## SCSS переменная для определения в теге <body> основного размера текста на сайте ## //
+$body-font-size: var(--body-font-size, initial) !default;
+// ## SCSS переменная для определения в теге <body> основного цвета текста на сайте ## //
+$body-font-color: var(--body-font-color, initial) !default;
+// ## SCSS переменная для определения в теге <body> основной жирности(веса) текста на сайте ## //
+$body-font-weight: var(--body-font-weight, initial) !default;
+// ## SCSS переменная для определения в теге <body> основного начертания текста на сайте ## //
+$body-font-style: var(--body-font-style, initial) !default;
+// ## SCSS переменная для определения в теге <body> основного line-height у текста на сайте ## //
+$body-font-line-height: var(--body-font-line-height, initial)  !default;
+// ## SCSS переменная для определения в теге <body> основного letter-spacing у текста на сайте ## //
+$body-font-letter-spacing: var(--body-font-letter-spacing, initial)  !default;
+// ## SCSS переменная для определения в теге <body> основного background-color на сайте ## //
+$body-background-color: var(--body-background-color, initial)  !default;
+// ## SCSS переменная для определения в теге <a> цвета ## //
+$link-color: var(--link-color, initial) !default;
+// ## SCSS переменная для определения в теге <a> цвета при наведение ## //
+$link-hover-color: var(--link-hover-color, initial) !default;
+// ## SCSS переменная для определения в теге <a> анимации ## //
+$link-transition-color: var(--link-transition-color, 0.4s) !default;
+// ## SCSS переменная для определения в теге <hr> цвета ## //
+$hr-color: var(--hr-color, hsl(0deg 0% 0%)) !default;
+
+// # SCSS-функция для переопредления и добавления root переменных в styles-and-scripts # //
+@function variables-root($vars-root) {
+	@return map-merge($variables-root, $vars-root)
+}
+
+// # ПЕРЕМЕННЫЕ МЕДИАЗАПРОСОВ # //
+// ## переменная для определения изначального подхода к верстке Mobile First или Desktop First ## //
+$media-direction: "min" !default;
+// ## ассоциативный массив для точек останов в медиазапросах ## //
+$breakpoints: (
+	xs: 360,
+	sm: 576,
+	md: 768,
+	lg: 992,
+	xl: 1200,
+	xxl: 1400,
+) !default;
+// ## ассоциативный массив для количества колонок и паддингов в них ## //
+$col-media-params: (
+	xs: (4, 2),
+	sm: (6, 555),
+	md: 6,
+	lg: 8,
+	xl: 12,
+	xxl: (12, 4),
+) !default;
+
+// ==> переменные для контайнера
+//$container: (
+//	xs: 414,
+//	lg: 1228,
+//	xl: 1406,
+//) !default;
+
+// # МАССИВ СВОЙСТВ ДЛЯ АВТОМАТИЗАЦИИ UTILITIES SPACINGS # //
+$property-values-spacings: (auto, 0, 10, 20, 30, 40, 50) !default;
+
+// # СЛОИ CSS ПОД АРХИТЕКТУРЫ BEMIT (BEM + ITCSS) И FSD # //
+@layer generic, elements, components-shared, components-entities, components-widgets, pages, utilities;

@@ -1,0 +1,77 @@
+@mixin compression-col {
+	$breakpoints-name-list: map-keys($breakpoints);
+
+	.compression-col-left {
+		@for $index from 1 through length($breakpoints) {
+			$cols-count: nth(map-get($col-media-params, nth($breakpoints-name-list, -$index)), 1);
+
+			@if nth($breakpoints-name-list, -$index) == "xxl" {
+				@for $col-num from 0 through $cols-count {
+					&-#{$col-num} {
+						@if $col-num == 0 {
+							margin-right: 0;
+						}
+
+						@else {
+							margin-right: calc(100% / #{$cols-count} * #{$col-num});
+						}
+					}
+				}
+			}
+
+			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@include media(nth($breakpoints-name-list, -$index)) {
+					@for $col-num from 0 through $cols-count {
+						&-#{$col-num}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@if $col-num == 0 {
+								margin-right: 0;
+							}
+
+							@else {
+								margin-right: calc(100% / #{$cols-count} * #{$col-num});
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.compression-col-right {
+		@for $index from 1 through length($breakpoints) {
+			$cols-count: nth(map-get($col-media-params, nth($breakpoints-name-list, -$index)), 1);
+
+			@if nth($breakpoints-name-list, -$index) == "xxl" {
+				@for $col-num from 0 through $cols-count {
+					&-#{$col-num} {
+						@if $col-num == 0 {
+							margin-left: 0;
+						}
+
+						@else {
+							margin-left: calc(100% / #{$cols-count} * #{$col-num});
+						}
+					}
+				}
+			}
+
+			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@include media(nth($breakpoints-name-list, -$index)) {
+					@for $col-num from 0 through $cols-count - 1 {
+						&-#{$col-num}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+							@if $col-num == 0 {
+								margin-left: 0;
+							}
+
+							@else {
+								margin-left: calc(100% / #{$cols-count} * #{$col-num});
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include compression-col;

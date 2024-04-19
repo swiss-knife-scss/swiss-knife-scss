@@ -1,0 +1,20 @@
+@import "utilities/spacings/margin";
+@import "utilities/spacings/padding";
+@import "utilities/spacings/gap";
+@import "utilities/display";
+@import "utilities/justify-content";
+@import "utilities/align-items";
+@import "utilities/flex-direction";
+@import "utilities/flex-wrap";
+@import "utilities/order";
+@import "utilities/text-align";
+@import "utilities/width";
+@import "utilities/zIndex";
+@import "utilities/shift-col";
+@import "utilities/compression-col";
+
+.js-body-hidden-scrollbar {
+	overflow: hidden;
+
+	margin-right: var(--js-scrollbar-width);
+}

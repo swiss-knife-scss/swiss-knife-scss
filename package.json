@@ -1,0 +1,25 @@
+{
+  "name": "swiss-knife-scss",
+  "version": "1.0.0",
+  "description": "Library for easy scss",
+  "main": "swiss-knife-scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swiss-knife-scss/swiss-knife-scss.git"
+  },
+  "keywords": [
+    "scss",
+    "mixins",
+    "functions",
+    "breakpoints"
+  ],
+  "author": "Sereda A.A, Sevostyanov E.A",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swiss-knife-scss/swiss-knife-scss/issues"
+  },
+  "homepage": "https://github.com/swiss-knife-scss/swiss-knife-scss#readme"
+}

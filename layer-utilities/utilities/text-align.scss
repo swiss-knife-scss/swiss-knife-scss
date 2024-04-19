@@ -1,0 +1,5 @@
+// # ПЕРЕМЕННЫЕ ДЛЯ УТИЛИТ TEXT-ALIGN # //
+$property-values: (left, center, right);
+
+// # СТИЛИ TEXT-ALIGN # //
+@include utilities(text-align, text-align);
