@@ -1,6 +1,6 @@
 {
   "name": "swiss-knife-scss",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Library for easy scss",
   "main": "swiss-knife-scss",
   "scripts": {
