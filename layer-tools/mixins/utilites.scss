@@ -107,7 +107,7 @@
 }
 
 // # ПОДКЛЮЧЕНИЕ УТИЛИТНЫХ КЛАССОВ # //
-@mixin utilities($class-name, $property-utilities, $unit: "") {
+@mixin utilities($property-values, $class-name, $property-utilities, $unit: "") {
 	.#{$class-name} {
 		$breakpoints-name-list: map-keys($breakpoints);
 

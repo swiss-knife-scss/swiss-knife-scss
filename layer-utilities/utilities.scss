@@ -1,6 +1,8 @@
+// отступы
 @import "utilities/spacings/margin";
 @import "utilities/spacings/padding";
 @import "utilities/spacings/gap";
+// прочее
 @import "utilities/display";
 @import "utilities/justify-content";
 @import "utilities/align-items";
@@ -9,10 +11,11 @@
 @import "utilities/order";
 @import "utilities/text-align";
 @import "utilities/width";
-@import "utilities/zIndex";
+@import "utilities/z-index";
+// для смещения колонок
 @import "utilities/shift-col";
 @import "utilities/compression-col";
-
+// для взаимодействия со скроллбаром
 .js-body-hidden-scrollbar {
 	overflow: hidden;
 

@@ -1,5 +1,5 @@
 // # ПЕРЕМЕННЫЕ ДЛЯ УТИЛИТ FLEX-WRAP # //
-$property-values: (wrap, wrap-reverse, nowrap);
+$property-values-flex-wrap: (wrap, wrap-reverse, nowrap) !default;
 
 // # СТИЛИ FLEX-WRAP # //
-@include utilities(flex, flex-wrap);
+@include utilities($property-values-flex-wrap, flex, flex-wrap);

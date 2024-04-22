@@ -1,5 +1,5 @@
 // # ПЕРЕМЕННЫЕ ДЛЯ УТИЛИТ JUSTIFY-CONTENT # //
-$property-values: (start, center, end, around, between);
+$property-values-justify-content: (start, center, end, around, between) !default;
 
 // # СТИЛИ JUSTIFY-CONTENT # //
-@include utilities(justify-content, justify-content);
+@include utilities($property-values-justify-content, justify-content, justify-content);
