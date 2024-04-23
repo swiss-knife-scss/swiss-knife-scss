@@ -105,3 +105,102 @@
 		}
 	}
 }
+
+//.row-cols-auto, .row-cols-1, .row-cols-2, .row-cols-3, .row-cols-4, .row-cols-5, .row-cols-6, .row-cols-lg-auto, .row-cols-lg-1, .row-cols-lg-2, .row-cols-lg-3, .row-cols-lg-4, .row-cols-lg-5, .row-cols-lg-6, .row-cols-sm-auto, .row-cols-sm-1, .row-cols-sm-2, .row-cols-sm-3, .row-cols-sm-4, .row-cols-sm-5, .row-cols-sm-6 , .row-cols-xs-auto, .row-cols-xs-1, .row-cols-xs-2, .row-cols-xs-3, .row-cols-xs-4, .row-cols-xs-5, .row-cols-xs-6    {
+//	& > * {
+//		padding-inline: 12px;
+//
+//		@include media(xs) {
+//			padding-inline: 10px;
+//		}
+//	}
+//}
+//
+//// классы для управления внутренними колонками
+//.row-cols {
+//	&-auto > * {
+//		flex: 0 0 auto;
+//
+//		width: auto;
+//	}
+//
+//	&-1 > * {
+//		flex: 0 0 100%;
+//
+//		width: 100%;
+//	}
+//
+//	&-2 > * {
+//		flex: 0 0 calc(100% / 2 - (var(--column-gap, 0) / 2));
+//
+//		max-width: calc(100% / 2 - (var(--column-gap, 0) / 2));
+//	}
+//
+//	&-3 > * {
+//		flex: 0 0 calc(100% / 3 - (var(--column-gap, 0) / 3));
+//
+//		width: calc(100% / 3 - (var(--column-gap, 0) / 3));
+//	}
+//
+//	&-4 > * {
+//		flex: 0 0 calc(100% / 4 - (var(--column-gap, 0) / 4));
+//
+//		width: calc(100% / 4 - (var(--column-gap, 0) / 4));
+//	}
+//
+//	&-5 > * {
+//		flex: 0 0 calc(100% / 5 - (var(--column-gap, 0) / 5));
+//
+//		width: calc(100% / 5 - (var(--column-gap, 0) / 5));
+//	}
+//
+//	&-6 > * {
+//		flex: 0 0 calc(100% / 6 - (var(--column-gap, 0) / 6));
+//
+//		width: calc(100% / 6 - (var(--column-gap, 0) / 6));
+//	}
+//
+//	@include media(xs) {
+//		&-auto\@xs > * {
+//			flex: 0 0 auto;
+//
+//			width: auto;
+//		}
+//
+//		&-1\@xs > * {
+//			flex: 0 0 100%;
+//
+//			max-width: 100%;
+//		}
+//
+//		&-2\@xs > * {
+//			flex: 0 0 calc(100% / 2 - (var(--column-gap, 0) / 2));
+//
+//			max-width: calc(100% / 2 - (var(--column-gap, 0) / 2));
+//		}
+//
+//		&-3\@xs > * {
+//			flex: 0 0 calc(100% / 3 - (var(--column-gap, 0) / 3));
+//
+//			width: calc(100% / 3 - (var(--column-gap, 0) / 3));
+//		}
+//
+//		&-4\@xs > * {
+//			flex: 0 0 calc(100% / 4 - (var(--column-gap, 0) / 4));
+//
+//			width: calc(100% / 4 - (var(--column-gap, 0) / 4));
+//		}
+//
+//		&-5\@xs > * {
+//			flex: 0 0 calc(100% / 5 - (var(--column-gap, 0) / 5));
+//
+//			width: calc(100% / 5 - (var(--column-gap, 0) / 5));
+//		}
+//
+//		&-6\@xs > * {
+//			flex: 0 0 calc(100% / 6 - (var(--column-gap, 0) / 6));
+//
+//			width: calc(100% / 6 - (var(--column-gap, 0) / 6));
+//		}
+//	}
+//}
