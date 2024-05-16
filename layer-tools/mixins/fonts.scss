@@ -3,14 +3,23 @@
 // >  - $file - название файла без его расширения
 // >  - $weight - жирность
 // >  - $style - начертание
+//
 // > Внутри миксина includeFont также есть 3 обязательные переменные:
 // >  - $include-font-types - ассоциативный массив подключаемых форматов шрифта
 // >  - $include-font-path - строка пути до файлов шрифта
 // >  - $include-font-family - строка названия шрифта для вызова его в проекте
-@mixin includeFont($file, $weight: normal, $style: normal) {
+//
+// > Пример записываемых данных в переменные
+// > Данные переменные вызываются в миксине - "includeFont"
+// > В примере переменной $include-font-types прописаны настоящие типы шрифтов
+// >  - $include-font-family: "Arial";
+// >  - $include-font-types: ("eot": "embedded-opentype", "otf": "opentype", "woff": "woff", "woff2": "woff2", "ttf": "truetype");
+// >  - $include-font-path: "./fonts/";
+
+@mixin includeFont($include-font-family, $include-font-path, $include-font-types, $file, $weight: normal, $style: normal) {
 	@each $type, $format in $include-font-types {
 		@font-face {
-			src: local($file), local($file), url($include-font-path + $file + "." + $type) format($format);
+			src: local($file), local($file), url($include-font-path + $include-font-family + "/" + $file + "." + $type) format($format);
 
 			font-family: $include-font-family;
 			font-weight: $weight;

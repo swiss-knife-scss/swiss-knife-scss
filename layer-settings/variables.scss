@@ -1,9 +1,3 @@
-// # SCSS-ПЕРЕМЕННЫЕ ДЛЯ ПОДКЛЮЧЕНИЯ ШРИФТОВ # //
-// > Данные переменные вызываются в миксине - "includeFont"
-$include-font-path: "./fonts" !default;
-$include-font-types: ("eot": "embedded-opentype", "otf": "opentype", "woff": "woff", "woff2": "woff2", "ttf": "truetype") !default;
-$include-font-family: "Arial" !default;
-
 // # АССОЦИАТИВНЫЙ МАССИВ ПЕРЕМЕННЫХ ROOT В CSS # //
 $variables-root: (
 	// ## Общие переменные ## //
