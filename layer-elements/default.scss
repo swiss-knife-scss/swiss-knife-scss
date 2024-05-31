@@ -13,12 +13,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 9em;
+	border-radius: $scrollbar-radius;
+	border: $scrollbar-thumb-border;
 	background-color: $scrollbar-thumb-color;
 }
 
 ::-webkit-scrollbar-track {
-	border-radius: 9em;
+	border-radius: $scrollbar-radius;
 	background-color: $scrollbar-track-color;
 }
 

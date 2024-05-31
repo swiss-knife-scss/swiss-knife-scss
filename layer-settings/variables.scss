@@ -6,7 +6,9 @@ $variables-root: (
 	// ## Переменные для scrollbar ## //
 	"scrollbar-width": 7px,
 	"scrollbar-thumb-color": hsl(0deg 0% 75.69%),
+	"scrollbar-thumb-border": initial,
 	"scrollbar-track-color": hsl(0deg 0% 94.51%),
+	"scrollbar-radius": 9em,
 	// ## Переменные для тега html ## //
 	"html-font-size": 10px,
 	// ## Переменные для тега body ## //
@@ -35,8 +37,12 @@ $box-sizing: var(--box-sizing, border-box) !default;
 $selection-color: var(--selection-color, hsl(212.65deg 100% 60%)) !default;
 // ## SCSS переменная для ширины полосы прокрутки на сайте ## //
 $scrollbar-width: var(--scrollbar-width, 15px) !default;
+// ## SCSS переменная для скругления трека на сайте ## //
+$scrollbar-radius: var(--scrollbar-radius, 9em) !default;
 // ## SCSS переменная для цвета ползунка на сайте ## //
 $scrollbar-thumb-color: var(--scrollbar-thumb-color, hsl(0deg 0% 75.69%)) !default;
+// ## SCSS переменная для бордера ползунка на сайте ## //
+$scrollbar-thumb-border: var(--scrollbar-thumb-border, initial) !default;
 // ## SCSS переменная для цвета трека на сайте ## //
 $scrollbar-track-color: var(--scrollbar-track-color, hsl(0deg 0% 94.51%)) !default;
 // ## SCSS переменная для определения размера текста тега html при использование единицы измерения rem в font-size ## //
