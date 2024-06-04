@@ -5,7 +5,8 @@
 }
 
 ::selection {
-	background: $selection-color;
+	background: $selection-background;
+	color: $selection-color;
 }
 
 ::-webkit-scrollbar {
@@ -25,7 +26,9 @@
 
 html {
 	font-size: $html-font-size;
-	scroll-behavior: smooth;
+	@if $scroll-behavior {
+		scroll-behavior: $scroll-behavior;
+	}
 }
 
 body {

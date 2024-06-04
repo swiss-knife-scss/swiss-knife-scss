@@ -9,3 +9,11 @@
 + Layer-settings
 + Layer-tools
 + Layer-utilities
+
+### New version and their changes
+
+> **v1.0.7**
+>
+> Добавлены переменные selection-background и scroll-behavior
+>
+> Измененно поведение selection-color

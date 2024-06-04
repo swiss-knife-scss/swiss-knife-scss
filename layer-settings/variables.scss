@@ -2,7 +2,10 @@
 $variables-root: (
 	// ## Общие переменные ## //
 	"box-sizing": border-box,
-	"selection-color": hsl(212.65deg 100% 60%),
+	"scroll-behavior": smooth,
+	// ## Переменные для selection ## //
+	"selection-background": hsl(212.65deg 100% 60%),
+	"selection-color": inherite,
 	// ## Переменные для scrollbar ## //
 	"scrollbar-width": 7px,
 	"scrollbar-thumb-color": hsl(0deg 0% 75.69%),
@@ -33,8 +36,12 @@ $variables-root: (
 // *** //
 // ## SCSS переменная изменения свойства с параметром box-sizing: border-box для всего сайта ## //
 $box-sizing: var(--box-sizing, border-box) !default;
-// ## SCSS переменная для изменения цвета выделения текста на сайте ## //
-$selection-color: var(--selection-color, hsl(212.65deg 100% 60%)) !default;
+// ## SCSS переменная для изменения управля поведением прокрутки ## //
+$scroll-behavior: var(--scroll-behavior, smooth)) !default;
+// ## SCSS переменная для изменения цвета background выделения текста на сайте ## //
+$selection-background: var(--selection-background, hsl(212.65deg 100% 60%)) !default;
+// ## SCSS переменная для изменения цвета color выделения текста на сайте ## //
+$selection-color: var(--selection-color, inherite)) !default;
 // ## SCSS переменная для ширины полосы прокрутки на сайте ## //
 $scrollbar-width: var(--scrollbar-width, 15px) !default;
 // ## SCSS переменная для скругления трека на сайте ## //
