@@ -7,22 +7,35 @@
 
 			@if nth($breakpoints-name-list, -$index) == "xxl" {
 				@for $colNum from 1 through $cols-count {
-					&-#{$colNum} {
-						flex: 0 0 calc(100% / #{$cols-count} * #{$colNum});
-
-						max-width: calc(100% / #{$cols-count} * #{$colNum});
-					}
-				}
-			}
-
-			@else if nth($breakpoints-name-list, -$index) != "xxl" {
-				@include media(nth($breakpoints-name-list, -$index)) {
-
-					@for $colNum from 1 through $cols-count {
-						&-#{$colNum}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+					@if $cols-count == 1 {
+						& {
 							flex: 0 0 calc(100% / #{$cols-count} * #{$colNum});
 
 							max-width: calc(100% / #{$cols-count} * #{$colNum});
+						}
+					} @else {
+						&-#{$colNum} {
+							flex: 0 0 calc(100% / #{$cols-count} * #{$colNum});
+
+							max-width: calc(100% / #{$cols-count} * #{$colNum});
+						}
+					}
+				}
+			} @else if nth($breakpoints-name-list, -$index) != "xxl" {
+				@include media(nth($breakpoints-name-list, -$index)) {
+					@for $colNum from 1 through $cols-count {
+						@if $cols-count == 1 {
+							&\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+								flex: 0 0 calc(100% / #{$cols-count} * #{$colNum});
+
+								max-width: calc(100% / #{$cols-count} * #{$colNum});
+							}
+						} @else {
+							&-#{$colNum}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
+								flex: 0 0 calc(100% / #{$cols-count} * #{$colNum});
+
+								max-width: calc(100% / #{$cols-count} * #{$colNum});
+							}
 						}
 					}
 				}
@@ -39,24 +52,18 @@
 					&-#{$colNum} {
 						@if $colNum == 0 {
 							margin-left: 0;
-						}
-
-						@else {
+						} @else {
 							margin-left: calc(100% / #{$cols-count} * #{$colNum});
 						}
 					}
 				}
-			}
-
-			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+			} @else if nth($breakpoints-name-list, -$index) != "xxl" {
 				@include media(nth($breakpoints-name-list, -$index)) {
 					@for $colNum from 0 through $cols-count - 1 {
 						&-#{$colNum}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
 							@if $colNum == 0 {
 								margin-left: 0;
-							}
-
-							@else {
+							} @else {
 								margin-left: calc(100% / #{$cols-count} * #{$colNum});
 							}
 						}
@@ -72,7 +79,6 @@
 
 	.row {
 		@for $index from 1 through length($breakpoints) {
-
 			@if nth($breakpoints-name-list, -$index) == "xxl" {
 				display: flex;
 				flex-wrap: wrap;
@@ -87,9 +93,7 @@
 						padding-inline: #{$row-spacing}px;
 					}
 				}
-			}
-
-			@else if nth($breakpoints-name-list, -$index) != "xxl" {
+			} @else if nth($breakpoints-name-list, -$index) != "xxl" {
 				@include media(nth($breakpoints-name-list, -$index)) {
 					@if length(map-get($col-media-params, nth($breakpoints-name-list, -$index))) == 2 {
 						$row-spacing: calc(nth(map-get($col-media-params, nth($breakpoints-name-list, -$index)), 2) / 2);
