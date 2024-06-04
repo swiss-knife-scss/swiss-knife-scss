@@ -4,13 +4,13 @@ $variables-root: (
 	"box-sizing": border-box,
 	"scroll-behavior": smooth,
 	// ## Переменные для selection ## //
-	"selection-background": hsl(212.65deg 100% 60%),
+	"selection-background": hsla(212.65, 100%, 60%, 1),
 	"selection-color": inherite,
 	// ## Переменные для scrollbar ## //
 	"scrollbar-width": 7px,
-	"scrollbar-thumb-color": hsl(0deg 0% 75.69%),
+	"scrollbar-thumb-color": hsla(0, 0%, 75.69%, 1),
 	"scrollbar-thumb-border": initial,
-	"scrollbar-track-color": hsl(0deg 0% 94.51%),
+	"scrollbar-track-color": hsla(0, 0%, 94.51%, 1),
 	"scrollbar-radius": 9em,
 	// ## Переменные для тега html ## //
 	"html-font-size": 10px,
@@ -28,7 +28,7 @@ $variables-root: (
 	"link-hover-color": initial,
 	"link-transition-color": initial,
 	// ## Переменные для тега hr ## //
-	"hr-color": hsl(0deg 0% 0%),
+	"hr-color": hsla(0, 0%, 0%, 1)
 ) !default;
 
 // # SCSS-ПЕРЕМЕННЫЕ ДЛЯ DEFAULT # //
@@ -37,21 +37,21 @@ $variables-root: (
 // ## SCSS переменная изменения свойства с параметром box-sizing: border-box для всего сайта ## //
 $box-sizing: var(--box-sizing, border-box) !default;
 // ## SCSS переменная для изменения управля поведением прокрутки ## //
-$scroll-behavior: var(--scroll-behavior, smooth)) !default;
+$scroll-behavior: var(--scroll-behavior, smooth) !default;
 // ## SCSS переменная для изменения цвета background выделения текста на сайте ## //
-$selection-background: var(--selection-background, hsl(212.65deg 100% 60%)) !default;
+$selection-background: var(--selection-background, hsla(212.65, 100%, 60%, 1)) !default;
 // ## SCSS переменная для изменения цвета color выделения текста на сайте ## //
-$selection-color: var(--selection-color, inherite)) !default;
+$selection-color: var(--selection-color, inherite) !default;
 // ## SCSS переменная для ширины полосы прокрутки на сайте ## //
 $scrollbar-width: var(--scrollbar-width, 15px) !default;
 // ## SCSS переменная для скругления трека на сайте ## //
 $scrollbar-radius: var(--scrollbar-radius, 9em) !default;
 // ## SCSS переменная для цвета ползунка на сайте ## //
-$scrollbar-thumb-color: var(--scrollbar-thumb-color, hsl(0deg 0% 75.69%)) !default;
+$scrollbar-thumb-color: var(--scrollbar-thumb-color, hsla(0, 0%, 75.69%, 1)) !default;
 // ## SCSS переменная для бордера ползунка на сайте ## //
 $scrollbar-thumb-border: var(--scrollbar-thumb-border, initial) !default;
 // ## SCSS переменная для цвета трека на сайте ## //
-$scrollbar-track-color: var(--scrollbar-track-color, hsl(0deg 0% 94.51%)) !default;
+$scrollbar-track-color: var(--scrollbar-track-color, hsla(0, 0%, 94.51%, 1)) !default;
 // ## SCSS переменная для определения размера текста тега html при использование единицы измерения rem в font-size ## //
 $html-font-size: var(--html-font-size, 10px) !default;
 // ## SCSS переменная для определения в теге <body> основного шрифта на сайте ## //
@@ -65,11 +65,11 @@ $body-font-weight: var(--body-font-weight, initial) !default;
 // ## SCSS переменная для определения в теге <body> основного начертания текста на сайте ## //
 $body-font-style: var(--body-font-style, initial) !default;
 // ## SCSS переменная для определения в теге <body> основного line-height у текста на сайте ## //
-$body-font-line-height: var(--body-font-line-height, initial)  !default;
+$body-font-line-height: var(--body-font-line-height, initial) !default;
 // ## SCSS переменная для определения в теге <body> основного letter-spacing у текста на сайте ## //
-$body-font-letter-spacing: var(--body-font-letter-spacing, initial)  !default;
+$body-font-letter-spacing: var(--body-font-letter-spacing, initial) !default;
 // ## SCSS переменная для определения в теге <body> основного background-color на сайте ## //
-$body-background-color: var(--body-background-color, initial)  !default;
+$body-background-color: var(--body-background-color, initial) !default;
 // ## SCSS переменная для определения в теге <a> цвета ## //
 $link-color: var(--link-color, initial) !default;
 // ## SCSS переменная для определения в теге <a> цвета при наведение ## //
@@ -77,11 +77,11 @@ $link-hover-color: var(--link-hover-color, initial) !default;
 // ## SCSS переменная для определения в теге <a> анимации ## //
 $link-transition-color: var(--link-transition-color, 0.4s) !default;
 // ## SCSS переменная для определения в теге <hr> цвета ## //
-$hr-color: var(--hr-color, hsl(0deg 0% 0%)) !default;
+$hr-color: var(--hr-color, hsl(0, 0%, 0%, 1)) !default;
 
 // # SCSS-функция для переопредления и добавления root переменных в styles-and-scripts # //
 @function variables-root($vars-root) {
-	@return map-merge($variables-root, $vars-root)
+	@return map-merge($variables-root, $vars-root);
 }
 
 // # ПЕРЕМЕННЫЕ МЕДИАЗАПРОСОВ # //
@@ -98,12 +98,21 @@ $breakpoints: (
 ) !default;
 // ## ассоциативный массив для количества колонок и паддингов в них ## //
 $col-media-params: (
-	xs: (4, 2),
-	sm: (6, 555),
+	xs: (
+		4,
+		2,
+	),
+	sm: (
+		6,
+		555,
+	),
 	md: 6,
 	lg: 8,
 	xl: 12,
-	xxl: (12, 4),
+	xxl: (
+		12,
+		4,
+	),
 ) !default;
 
 // ==> переменные для контайнера

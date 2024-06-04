@@ -5,8 +5,8 @@
 }
 
 ::selection {
-	background: $selection-background;
 	color: $selection-color;
+	background: $selection-background;
 }
 
 ::-webkit-scrollbar {
@@ -14,8 +14,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: $scrollbar-radius;
 	border: $scrollbar-thumb-border;
+	border-radius: $scrollbar-radius;
 	background-color: $scrollbar-thumb-color;
 }
 
@@ -26,6 +26,7 @@
 
 html {
 	font-size: $html-font-size;
+
 	@if $scroll-behavior {
 		scroll-behavior: $scroll-behavior;
 	}
