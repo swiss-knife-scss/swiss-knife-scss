@@ -30,7 +30,7 @@ $variables-root: (
 	"link-text-decoration": underline,
 	// ## Переменные для тега hr ## //
 	"hr-color": hsla(0, 0%, 0%, 1),
-	"hr-height": hsla(0, 0%, 0%, 1),
+	"hr-height": 1px,
 	// ## Colors standard ## //
 	"transparent": transparent
 ) !default;
