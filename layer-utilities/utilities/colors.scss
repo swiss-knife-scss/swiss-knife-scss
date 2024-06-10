@@ -1,0 +1,4 @@
+// # МАССИВ СВОЙСТВ ДЛЯ СОЗДАНИЯ ЦВЕТОВ # //
+$variable-colors: (transparent) !default;
+
+@include colors($variable-colors);
