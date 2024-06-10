@@ -28,7 +28,8 @@ $variables-root: (
 	"link-hover-color": initial,
 	"link-transition-color": initial,
 	// ## Переменные для тега hr ## //
-	"hr-color": hsla(0, 0%, 0%, 1)
+	"hr-color": hsla(0, 0%, 0%, 1),
+	"hr-height": hsla(0, 0%, 0%, 1)
 ) !default;
 
 // # SCSS-ПЕРЕМЕННЫЕ ДЛЯ DEFAULT # //
@@ -78,6 +79,8 @@ $link-hover-color: var(--link-hover-color, initial) !default;
 $link-transition-color: var(--link-transition-color, 0.4s) !default;
 // ## SCSS переменная для определения в теге <hr> цвета ## //
 $hr-color: var(--hr-color, hsl(0, 0%, 0%, 1)) !default;
+// ## SCSS переменная для определения в теге <hr> высоты ## //
+$hr-height: var(--hr-height, 1px) !default;
 
 // # SCSS-функция для переопредления и добавления root переменных в styles-and-scripts # //
 @function variables-root($vars-root) {

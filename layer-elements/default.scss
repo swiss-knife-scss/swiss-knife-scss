@@ -61,7 +61,7 @@ img {
 }
 
 hr {
-	height: 1px;
+	height: $hr-height;
 
 	background-color: $hr-color;
 }
