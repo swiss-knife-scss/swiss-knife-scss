@@ -47,7 +47,8 @@ body {
 }
 
 a {
-	transition: $link-transition-color;
+	transition: color $link-transition-color;
+	text-decoration: $link-text-decoration;
 
 	color: $link-color;
 

@@ -26,7 +26,8 @@ $variables-root: (
 	// ## Переменные для тега a ## //
 	"link-color": initial,
 	"link-hover-color": initial,
-	"link-transition-color": initial,
+	"link-transition-color": 0.4s,
+	"link-text-decoration": underline,
 	// ## Переменные для тега hr ## //
 	"hr-color": hsla(0, 0%, 0%, 1),
 	"hr-height": hsla(0, 0%, 0%, 1)
@@ -75,8 +76,10 @@ $body-background-color: var(--body-background-color, initial) !default;
 $link-color: var(--link-color, initial) !default;
 // ## SCSS переменная для определения в теге <a> цвета при наведение ## //
 $link-hover-color: var(--link-hover-color, initial) !default;
-// ## SCSS переменная для определения в теге <a> анимации ## //
+// ## SCSS переменная для определения в теге <a> время анимации ## //
 $link-transition-color: var(--link-transition-color, 0.4s) !default;
+// ## SCSS переменная для определения в теге <a> анимации ## //
+$link-text-decoration: var(--link-text-decoration, underline) !default;
 // ## SCSS переменная для определения в теге <hr> цвета ## //
 $hr-color: var(--hr-color, hsl(0, 0%, 0%, 1)) !default;
 // ## SCSS переменная для определения в теге <hr> высоты ## //
