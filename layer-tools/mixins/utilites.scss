@@ -10,9 +10,7 @@
 						&-#{$property} {
 							#{$property-spacing}: #{$property};
 						}
-					}
-
- @else if $property != "auto" {
+					} @else if $property != "auto" {
 						&-#{$property} {
 							@if $class-name == g or $class-name == cg {
 								--column-gap: #{$property}px;
@@ -21,9 +19,7 @@
 						}
 					}
 				}
-			}
-
- @else if nth($breakpoints-name-list, -$index) != "xxl" {
+			} @else if nth($breakpoints-name-list, -$index) != "xxl" {
 				@each $property in $property-values-spacings {
 					@if $property == "auto" and $auto {
 						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
@@ -31,9 +27,7 @@
 								#{$property-spacing}: #{$property};
 							}
 						}
-					}
-
- @else if $property != "auto" {
+					} @else if $property != "auto" {
 						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
 							@include media(nth($breakpoints-name-list, -$index)) {
 								@if $class-name == g or $class-name == cg {
@@ -61,9 +55,7 @@
 						&-#{$property} {
 							#{$property-spacing}: #{$property};
 						}
-					}
-
- @else if $property != "auto" {
+					} @else if $property != "auto" {
 						&-#{$property} {
 							@if $class-name == g or $class-name == cg {
 								--column-gap: #{spacing-size-responsive(
@@ -83,9 +75,7 @@
 						}
 					}
 				}
-			}
-
- @else if nth($breakpoints-name-list, -$index) != "xxl" {
+			} @else if nth($breakpoints-name-list, -$index) != "xxl" {
 				@each $property in $property-values-spacings {
 					@if $property == "auto" and $auto {
 						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
@@ -93,9 +83,7 @@
 								#{$property-spacing}: #{$property};
 							}
 						}
-					}
-
- @else if $property != "auto" {
+					} @else if $property != "auto" {
 						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
 							#{"--"+$class-name+"-xs"}: #{$property};
 
@@ -134,23 +122,17 @@
 						&-#{$property} {
 							#{$property-utilities}: flex-#{$property};
 						}
-					}
-
- @else if $property == between or $property == around {
+					} @else if $property == between or $property == around {
 						&-#{$property} {
 							#{$property-utilities}: space-#{$property};
 						}
-					}
-
- @else {
+					} @else {
 						&-#{$property} {
 							#{$property-utilities}: #{$property}#{$unit};
 						}
 					}
 				}
-			}
-
- @else if nth($breakpoints-name-list, -$index) != "xxl" {
+			} @else if nth($breakpoints-name-list, -$index) != "xxl" {
 				@each $property in $property-values {
 					@if $property == start or $property == end {
 						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
@@ -158,17 +140,13 @@
 								#{$property-utilities}: flex-#{$property};
 							}
 						}
-					}
-
- @else if $property == between or $property == around {
+					} @else if $property == between or $property == around {
 						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
 							@include media(nth($breakpoints-name-list, -$index)) {
 								#{$property-utilities}: space-#{$property};
 							}
 						}
-					}
-
- @else {
+					} @else {
 						&-#{$property}\@#{classMedia(nth($breakpoints-name-list, -$index))} {
 							@include media(nth($breakpoints-name-list, -$index)) {
 								#{$property-utilities}: #{$property}#{$unit};
@@ -184,7 +162,7 @@
 @mixin colors($name-color-arr) {
 	@each $color-name in $name-color-arr {
 		.#{$color-name} {
-			color: var(#{"--" + $color-name});
+			color: var(--#{$color-name});
 		}
 	}
 }
