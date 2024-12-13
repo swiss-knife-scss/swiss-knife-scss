@@ -1,11 +1,10 @@
 {
   "name": "swiss-knife-scss",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Library for easy scss",
   "main": "swiss-knife-scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "git config core.hooksPath .git-hooks"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
